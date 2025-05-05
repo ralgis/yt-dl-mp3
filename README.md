@@ -1,17 +1,11 @@
-# yt-dlp Flask Server
+# yt-dlp Flask Server (with embedded yt-dlp.py)
 
-This Flask server downloads the best audio stream from a YouTube video using `yt-dlp` and returns it as a file.
+This Flask server downloads audio from YouTube using a locally bundled yt-dlp.py script.
 
 ## Endpoint
 
 GET /download?id=VIDEO_ID
 
-## Example
+Returns: .m4a audio file.
 
-GET /download?id=dQw4w9WgXcQ
-
-Returns: .m4a audio file of the video.
-
-## Dependencies
-
-- yt-dlp must be installed on the system (Render supports adding it in build script)
+## No external packages required beyond 'flask'.

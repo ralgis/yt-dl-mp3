@@ -1,6 +1,7 @@
 from flask import Flask, request, send_file, jsonify
 import subprocess
 import os
+import sys
 
 app = Flask(__name__)
 
@@ -16,7 +17,7 @@ def download_audio():
 
     try:
         subprocess.run([
-            "yt-dlp", "-f", "bestaudio", "-x", "--audio-format", "m4a",
+            sys.executable, "yt-dlp.py", "-f", "bestaudio", "-x", "--audio-format", "m4a",
             "-o", filepath, url
         ], check=True)
         return send_file(filepath, as_attachment=True)
